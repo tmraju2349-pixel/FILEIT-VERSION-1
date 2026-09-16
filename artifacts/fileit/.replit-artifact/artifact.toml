@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Fileit"
+version = "1.0.0"
+id = "artifacts/fileit"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25730
+
+[services.development]
+run = "pnpm --filter @workspace/fileit run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/fileit", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/fileit/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25730"
+BASE_PATH = "/"
