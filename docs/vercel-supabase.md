@@ -1,6 +1,5 @@
 # Independent Vercel + Supabase deployment
 
-The Replit deployment remains unchanged. This repository also contains a second
 deployment profile that can run independently on a separate Vercel domain with
 its own Supabase project.
 
@@ -45,7 +44,6 @@ Supabase project configured in that Vercel environment.
 
 ## 4. Independent data
 
-Use the current Replit environment variables for the Replit site. Use a
 different Supabase project and Vercel environment variables for the Vercel
 site. The sites do not share metadata or file bytes unless you intentionally
 point both deployments at the same database and bucket.
@@ -53,6 +51,4 @@ point both deployments at the same database and bucket.
 ## Important limits
 
 The Supabase profile uploads file bytes directly from the browser using signed
-uploads, so it avoids Vercel's serverless request-body limit. The Replit
-profile continues to use the existing Express multipart upload and Replit
 Object Storage.
